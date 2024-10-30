@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning Poker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="createSession" class="section">
+            <h1>Create Planning Poker Session</h1>
+            <form id="sessionForm">
+                <div class="form-group">
+                    <label for="sessionName">Session name *</label>
+                    <input type="text" id="sessionName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hostName">Your name *</label>
+                    <input type="text" id="hostName" required>
+                </div>
+
+                <div class="estimation-units">
+                    <h3>Choose estimation units:</h3>
+                    
+                    <div class="estimation-option">
+                        <input type="radio" id="fibonacci" name="estimationUnit" value="fibonacci" checked>
+                        <label for="fibonacci">Fibonacci (0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89)</label>
+                    </div>
+
+                    <div class="estimation-option">
+                        <input type="radio" id="shortFibonacci" name="estimationUnit" value="shortFibonacci">
+                        <label for="shortFibonacci">Short Fibonacci (0, ½, 1, 2, 3, 5, 8, 13, 20, 40, 100)</label>
+                    </div>
+
+                    <div class="estimation-option">
+                        <input type="radio" id="tshirt" name="estimationUnit" value="tshirt">
+                        <label for="tshirt">T-Shirt (XXS, XS, S, M, L, XL, XXL)</label>
+                    </div>
+
+                    <div class="estimation-option">
+                        <input type="checkbox" id="allowMembers" name="allowMembers">
+                        <label for="allowMembers">Allow members to manage session</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">Create Session</button>
+            </form>
+        </div>
+
+        <div id="joinSession" class="section hidden">
+            <h1>Join Session</h1>
+            <form id="joinForm">
+                <div class="form-group">
+                    <label for="playerName">Your name *</label>
+                    <input type="text" id="playerName" required>
+                </div>
+                <button type="submit" class="btn-primary">Join</button>
+            </form>
+        </div>
+
+        <div id="pokerSession" class="section hidden">
+            <div class="session-info">
+                <h2 id="sessionTitle"></h2>
+                <div id="players"></div>
+            </div>
+            
+            <div class="cards-container" id="cardsContainer"></div>
+            
+            <div class="controls">
+                <button id="revealBtn" class="btn-primary">Reveal Cards</button>
+                <button id="resetBtn" class="btn-secondary">Reset</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
