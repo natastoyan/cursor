@@ -186,4 +186,29 @@ if (sessionId) {
         document.getElementById('createSession').classList.add('hidden');
         document.getElementById('joinSession').classList.remove('hidden');
     }
-} 
+}
+
+// Add this function after your existing functions
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'share-notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Remove notification after animation completes
+    setTimeout(() => {
+        notification.remove();
+    }, 2300);
+}
+
+// Add this event listener with your other listeners
+document.getElementById('shareBtn').addEventListener('click', function() {
+    const sessionUrl = `${window.location.origin}${window.location.pathname}?session=${sessionData.id}`;
+    
+    navigator.clipboard.writeText(sessionUrl).then(() => {
+        showNotification('Session URL copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy URL:', err);
+        showNotification('Failed to copy URL');
+    });
+}); 

@@ -279,3 +279,37 @@ input[type="text"]:focus {
   margin: 0;
   color: #ff69b4; /* Or whatever color you're using for the text */
 }
+
+/* Add these styles */
+.share-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--neon-blue);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+    animation: slideIn 0.3s ease-out, fadeOut 0.3s ease-out 2s forwards;
+    z-index: 1000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
